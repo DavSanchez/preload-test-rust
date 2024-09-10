@@ -5,25 +5,29 @@
 ```console
 $ rm -rf target ; docker run --rm --volume $(pwd):/app rust:1.80.1 bash -c "cd app ; cargo test"
    Compiling preload-test v0.1.0 (/app)
-    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.46s
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.97s
      Running unittests src/lib.rs (target/debug/deps/preload_test-ff929676b3aef50e)
-HOLA!
-{"key3": "value3", "key1": "value1", "key2": "value2"}
-Bye!
+HOLA FROM LD_PRELOAD!
 
-running 0 tests
+running 1 test
+test tests::it_works ... ok
 
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/test.rs (target/debug/deps/test-072b1e95d71b02d6)
+
+running 1 test
+test it_works_integration ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s   Compiling preload-test v0.1.0 (/app)
 ```
 
 ```console
 $ rm -rf target ; docker run --rm --volume $(pwd):/app rust:1.81.0 bash -c "cd app ; cargo test"
    Compiling preload-test v0.1.0 (/app)
-    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.49s
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.92s
      Running unittests src/lib.rs (target/debug/deps/preload_test-0a654d8cd2033440)
-HOLA!
-{"key2": "value2", "key3": "value3", "key1": "value1"}
-Bye!
+HOLA FROM LD_PRELOAD!
 fatal runtime error: thread::set_current should only be called once per thread
 error: test failed, to rerun pass `--lib`
 
