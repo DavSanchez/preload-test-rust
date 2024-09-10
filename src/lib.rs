@@ -6,5 +6,13 @@ extern "C" fn ld_preload_initialise_fn() {
     // panic!("LET'S FAIL!");
 
     // Just printing something
-    println!("HOLA!");
+    println!("HOLA FROM LD_PRELOAD!");
+}
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn it_works() {
+        assert_eq!(2 + 2, 4);
+    }
 }
